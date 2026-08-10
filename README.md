@@ -38,7 +38,7 @@ The site is data-driven: services, pricing, FAQs, and branch details are defined
 ## Getting Started
 
 ```bash
-git clone https://github.com/<your-username>/the-nail-republic.git
+git clone https://github.com/vishruthhh/the-nail-republic.git
 cd the-nail-republic
 npm install
 npm start
