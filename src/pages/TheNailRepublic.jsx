@@ -16,6 +16,19 @@ import menhair from "../assets/menhair.jpeg";
 import front from "../assets/front.png";
 import { FaWhatsapp } from "react-icons/fa";
 
+import blueskyLogo from "../assets/brands/bluesky.webp";
+import brillareLogo from "../assets/brands/brillare.jpeg";
+import emigelLogo from "../assets/brands/emigel.jpeg";
+import inoaLogo from "../assets/brands/inoa.jpeg";
+import kroneLogo from "../assets/brands/krone.jpeg";
+import lorealLogo from "../assets/brands/loreal.png";
+import lyconLogo from "../assets/brands/lycon.jpeg";
+import matrixLogo from "../assets/brands/matrix.jpeg";
+import o3plusLogo from "../assets/brands/o3plus.webp";
+import ragaLogo from "../assets/brands/raaga.png";
+import schwarzkopfLogo from "../assets/brands/schwarzkopf.jpeg";
+import skinoraLogo from "../assets/brands/skinora.jpeg";
+
 const PHONE = "7907016692";
 const KOCHI_PHONE = "7907016692";
 const KOCHI_PHONE_DISPLAY = "+91 79070 16692";
@@ -26,7 +39,6 @@ const MUVA_WHATSAPP = "917907186692";
 const INSTAGRAM_HANDLE = "nail_republic_kochi";
 const INSTAGRAM_URL = "https://instagram.com/nail_republic_kochi";
 
-// central image map — swap srcs here to replace any photo site-wide
 const IMAGES = {
   hero: front,
 };
@@ -145,11 +157,6 @@ const MENU = [
   },
 ];
 
-const HOURS = [
-  ["Kochi", "Every day except Tuesday · 9:30 AM – 7:30 PM"],
-  ["Muva", "Every day except Wednesday · 10:30 AM – 6:00 PM"],
-];
-
 const FAQS = [
   {
     question: "What services does The Nail Republic offer?",
@@ -172,12 +179,27 @@ const FAQS = [
   },
 ];
 
-function NRLogo({ size = 40 }) {
+const BRANDS = [
+  { name: "Krone", logo: kroneLogo },
+  { name: "Skinora", logo: skinoraLogo },
+  { name: "Schwarzkopf", logo: schwarzkopfLogo },
+  { name: "Brillare", logo: brillareLogo },
+  { name: "Raga", logo: ragaLogo },
+  { name: "O3+", logo: o3plusLogo },
+  { name: "L'Oréal", logo: lorealLogo },
+  { name: "Matrix", logo: matrixLogo },
+  { name: "Inoa", logo: inoaLogo },
+  { name: "Bluesky", logo: blueskyLogo },
+  { name: "Emigel", logo: emigelLogo },
+  { name: "Lycon", logo: lyconLogo },
+];
+
+function NRLogo({ size = 40, className = "" }) {
   return (
     <img
       src={nrLogo}
       alt="The Nail Republic"
-      className="nrlogo-img"
+      className={`nrlogo-img ${className}`}
       style={{ width: size, height: size }}
     />
   );
@@ -209,12 +231,12 @@ export default function TheNailRepublicSimple() {
         }
         .site * { box-sizing: border-box; }
         html {
-  scroll-behavior: smooth;
-}
+          scroll-behavior: smooth;
+        }
 
-#home {
-  scroll-margin-top: 90px;
-}
+        #home {
+          scroll-margin-top: 90px;
+        }
         .site a { color: inherit; text-decoration: none; }
         .site ul { list-style: none; margin: 0; padding: 0; }
         .serif { font-family: 'Playfair Display', serif; }
@@ -222,13 +244,16 @@ export default function TheNailRepublicSimple() {
         .wrap { max-width: 1120px; margin: 0 auto; padding: 0 6vw; }
 
         .nrlogo-img {
-        display: block;
-        object-fit: contain;
-        flex-shrink: 0;
+          display: block;
+          object-fit: contain;
+          flex-shrink: 0;
         }
 
-        /* shared palette-matched photo treatment: pulls any photo toward
-           the site's black / warm-gold tone so nothing looks "stock" */
+        .hero-logo {
+          border-radius: 500%;
+          margin-bottom: 0.1rem;
+        }
+
         .toned-img {
           filter: grayscale(0.35) sepia(0.28) saturate(1.15) brightness(0.92) contrast(1.05);
         }
@@ -243,112 +268,97 @@ export default function TheNailRepublicSimple() {
         .nav-links a:hover { color: var(--gold); }
         .nav-call-wrap { flex-shrink: 0; }
 
-/* Hamburger button (mobile nav trigger) */
-.burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-}
-.burger span {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: var(--text);
-}
-.burger span:nth-child(2) { width: 16px; }
+        .burger {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          width: 42px;
+          height: 42px;
+          flex-shrink: 0;
+        }
+        .burger span {
+          display: block;
+          width: 22px;
+          height: 1.5px;
+          background: var(--text);
+        }
+        .burger span:nth-child(2) { width: 16px; }
 
-.btn-solid,
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+        .btn-solid,
+        .btn-outline,
+        .whatsapp-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
 
-  padding: 0.8rem 1.5rem;
-  min-width: 120px;
+          height: 44px;
+          padding: 0 1.2rem;
+          min-width: 100px;
+          white-space: nowrap;
 
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
 
-  text-decoration: none;
-  cursor: pointer;
+          text-decoration: none;
+          cursor: pointer;
 
-  transition: all 0.3s ease;
-}
+          transition: all 0.3s ease;
+        }
 
-/* Primary button */
-.btn-solid {
-  background: var(--gold);
-  color: #0c0c0b;
-  border: 1px solid var(--gold);
-}
+        .btn-solid {
+          background: var(--gold);
+          color: #0c0c0b;
+          border: 1px solid var(--gold);
+        }
 
-.btn-solid:hover {
-  background: #d8bd82;
-  border-color: #d8bd82;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(190, 155, 88, 0.15);
-}
+        .btn-solid:hover {
+          background: #d8bd82;
+          border-color: #d8bd82;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(190, 155, 88, 0.15);
+        }
 
-/* Secondary button */
-.btn-outline {
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid rgba(190, 155, 88, 0.65);
-}
+        .btn-outline {
+          background: transparent;
+          color: var(--gold);
+          border: 1px solid rgba(190, 155, 88, 0.65);
+        }
 
-.btn-outline:hover {
-  background: rgba(190, 155, 88, 0.08);
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
+        .btn-outline:hover {
+          background: rgba(190, 155, 88, 0.08);
+          border-color: var(--gold);
+          transform: translateY(-2px);
+        }
 
-.whatsapp-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+        .whatsapp-btn {
+          gap: 0.5rem;
+          background: transparent;
+          color: var(--gold);
+          border: 1px solid rgba(190, 155, 88, 0.65);
+        }
 
-  padding: 0.8rem 1.5rem;
-  min-width: 120px;
+        .whatsapp-btn:hover {
+          background: rgba(190, 155, 88, 0.08);
+          border-color: var(--gold);
+          transform: translateY(-2px);
+        }
 
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid rgba(190, 155, 88, 0.65);
-
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.whatsapp-btn:hover {
-  background: rgba(190, 155, 88, 0.08);
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
-
-.whatsapp-branch {
-  color: var(--gold) !important;
-  text-decoration: none;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
+        .whatsapp-branch {
+          color: var(--gold) !important;
+          text-decoration: none;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+        }
 
         .mmenu { position: fixed; inset: 0; background: var(--bg); z-index: 50; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.4rem; padding: 0 8vw; }
         .mmenu a { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
@@ -356,79 +366,94 @@ export default function TheNailRepublicSimple() {
 
         /* HERO */
         .hero {
-  min-height: calc(100vh - 75px);
-  padding: 5rem 0 4.5rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-}
+          min-height: calc(100vh - 75px);
+          padding: 0.1rem 0 10rem;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: center;
+        }
         .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; align-items: center; }
         .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
         .hero h1 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(2.2rem, 4.6vw, 3.2rem); margin: 0 0 0.5rem; }
         .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; color: var(--muted); font-size: 1.15rem; margin: 0 0 1.3rem; }
         .hero-desc { color: var(--text-dim); font-size: 0.96rem; max-width: 42ch; margin-bottom: 1.8rem; }
-        .hero-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+        .hero-cta { 
+          display: flex; 
+          gap: 0.9rem; 
+          flex-wrap: nowrap;
+          align-items: center; 
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+        }
         .hero-img { aspect-ratio: 4/5; background: var(--bg-alt); border: 1px solid var(--line); position: relative; overflow: hidden; }
         .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-       .branch-options {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  animation: branchExpand 0.3s ease;
-}
 
-.branch-options a {
-  border: none !important;
-  background: transparent !important;
-  padding: 0.4rem 0 !important;
+        .branch-options {
+          display: inline-flex;
+          align-items: center;
+          gap: 1.2rem;
+          height: 44px;
+          flex-wrap: nowrap;
+          white-space: nowrap;
+          animation: branchExpand 0.3s ease;
+        }
 
-  color: var(--gold) !important;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+        .branch-options a, .coming-soon-text {
+          border: none !important;
+          background: transparent !important;
+          padding: 0 !important;
 
-  text-decoration: none;
-  position: relative;
-  transition: color 0.25s ease;
-}
+          color: var(--gold) !important;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
 
-/* Elegant gold underline */
-.branch-options a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.3s ease;
-}
+          text-decoration: none;
+          position: relative;
+          transition: color 0.25s ease;
+        }
 
-.branch-options a:hover {
-  color: #f5e6bd !important;
-}
+        .branch-options a::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 0;
+          height: 1px;
+          background: var(--gold);
+          transition: width 0.3s ease;
+        }
 
-.branch-options a:hover::after {
-  width: 100%;
-}
+        .branch-options a:hover {
+          color: #f5e6bd !important;
+        }
 
-@keyframes branchExpand {
-  from {
-    opacity: 0;
-    transform: translateX(-8px);
-  }
+        .branch-options a:hover::after {
+          width: 100%;
+        }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-        @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .hero-img { order: -1; aspect-ratio: 16/10; } }
+        @keyframes branchExpand {
+          from {
+            opacity: 0;
+            transform: translateX(-8px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @media (max-width: 820px) { 
+          .hero-grid { grid-template-columns: 1fr; } 
+          .hero-img { order: -1; aspect-ratio: 16/10; } 
+          .hero-logo {
+            width: 120px !important;  
+            height: 120px !important;
+          }
+        }
 
         /* SECTION HEADING */
         .section { padding: 4rem 0; border-top: 1px solid var(--line); }
@@ -600,21 +625,81 @@ export default function TheNailRepublicSimple() {
           .service-items-list { grid-template-columns: 1fr; }
         }
 
+        /* BRANDS MARQUEE */
+        .brands-section {
+          padding: 3.2rem 0;
+          border-top: 1px solid var(--line);
+          overflow: hidden;
+        }
+        .brands-section .kicker { text-align: center; }
+        .brands-section h3 {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.4rem;
+          text-align: center;
+          margin: 0.3rem 0 2rem;
+        }
+        .brand-marquee {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .brand-track {
+          display: flex;
+          align-items: center;
+          gap: 3.5rem;
+          width: max-content;
+          animation: brandScroll 28s linear infinite;
+        }
+        .brand-marquee:hover .brand-track {
+          animation-play-state: paused;
+        }
+        .brand-logo-item {
+          flex-shrink: 0;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.75;
+          filter: grayscale(1) brightness(1.6);
+          transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+        .brand-logo-item:hover {
+          opacity: 1;
+          filter: grayscale(0) brightness(1);
+        }
+        .brand-logo-item img {
+          height: 100%;
+          width: auto;
+          max-width: 130px;
+          object-fit: contain;
+        }
+        @keyframes brandScroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @media (max-width: 620px) {
+          .brand-track { gap: 2.2rem; animation-duration: 20s; }
+          .brand-logo-item { height: 80px; }
+          .brand-logo-item img { max-width: 90px; }
+        }
+
         /* INSTAGRAM */
         .insta { text-align: center; }
         .insta .kicker { justify-content: center; }
         .insta h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 0.3rem 0 1.3rem; }
         .insta-row { display: flex; justify-content: center; gap: 2.8rem; margin: 1.6rem auto; max-width: 800px; }
         .insta-row .gal-item {
-  flex: 1;
-}
+          flex: 1;
+        }
 
-.insta-row .gal-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
+        .insta-row .gal-item img {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: contain;
+        }
 
         /* FAQ */
         .faq-list {
@@ -656,83 +741,80 @@ export default function TheNailRepublicSimple() {
           padding: 0 2rem 1.15rem 0;
         }
 
-        @media (max-width: 820px) {
-          .reviews-grid { grid-template-columns: 1fr; }
+        /* CONTACT / BRANCH CARDS */
+        .branch-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-top: 2.5rem;
         }
 
-        /* CONTACT */
-        .branch-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2.5rem;
-}
+        .branch-card {
+          border: 1px solid var(--line);
+          padding: 1.5rem;
+          min-width: 0;
+        }
 
-.branch-card {
-  border: 1px solid var(--line);
-  padding: 1.5rem;
-  min-width: 0;
-}
+        .branch-title {
+          font-family: 'Playfair Display', serif;
+          color: var(--gold);
+          font-size: 1.4rem;
+          margin-bottom: 1.2rem;
+        }
 
-.branch-title {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold);
-  font-size: 1.4rem;
-  margin-bottom: 1.2rem;
-}
+        .branch-info {
+          margin-bottom: 1.2rem;
+        }
 
-.branch-info {
-  margin-bottom: 1.2rem;
-}
+        .branch-info .label {
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--gold);
+          margin-bottom: 0.3rem;
+        }
 
-.branch-info .label {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
-}
+        .branch-info div {
+          font-size: 0.92rem;
+          color: var(--text);
+        }
 
-.branch-info div {
-  font-size: 0.92rem;
-  color: var(--text);
-}
+        .branch-hours {
+          color: var(--text-dim) !important;
+        }
 
-.branch-hours {
-  color: var(--text-dim) !important;
-}
+        .branch-cta {
+          display: flex;
+          gap: 0.8rem;
+          margin-top: 1.4rem;
+          margin-bottom: 1.5rem;
+          flex-wrap: nowrap;
+        }
 
-.branch-cta {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1.4rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
+        .branch-cta a {
+          flex: 1 1 50%;
+          min-width: 0;
+          text-align: center;
+        }
 
-.branch-cta a {
-  flex: 1;
-  min-width: 130px;
-}
+        .branch-map {
+          width: 100%;
+          height: 300px;
+          border: 1px solid var(--line);
+        }
 
-.branch-map {
-  width: 100%;
-  height: 300px;
-  border: 1px solid var(--line);
-}
+        .branch-map iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+          filter: grayscale(0.5) invert(0.92) contrast(0.9);
+        }
 
-.branch-map iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: grayscale(0.5) invert(0.92) contrast(0.9);
-}
-
-@media (max-width: 820px) {
-  .branch-grid {
-    grid-template-columns: 1fr;
-  }
-}
+        @media (max-width: 820px) {
+          .branch-grid {
+            grid-template-columns: 1fr;
+          }
+        }
 
         /* FOOTER */
         .foot { border-top: 1px solid var(--line); padding: 3rem 0 2.2rem; text-align: center; }
@@ -745,34 +827,24 @@ export default function TheNailRepublicSimple() {
         .foot-nav { display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.6rem; font-size: 0.84rem; color: var(--text-dim); }
         .foot-copy { font-size: 0.76rem; color: rgba(237,231,220,0.4); }
 
-        /* =========================================================
-           MOBILE / SMALL-SCREEN OVERRIDES
-           ========================================================= */
+        /* MOBILE OVERRIDES */
         @media (max-width: 860px) {
           .wrap { padding: 0 5vw; }
 
-          /* nav: swap desktop links + call button for a burger trigger */
           .nav-links { display: none; }
           .nav-call-wrap { display: none; }
           .burger { display: flex; }
           .nav-brand span { font-size: 0.95rem; }
-          .nav {
-  min-height: 55px;
-}
+          .nav { min-height: 55px; }
 
-.nav-inner {
-  min-height: 55px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
+          .nav-inner {
+            min-height: 55px;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+          }
 
           .hero { padding: 3.2rem 0 3rem; }
           .hero-desc { max-width: 100%; }
-          .hero-cta { flex-direction: column; align-items: stretch; }
-          .hero-cta .btn-solid,
-          .hero-cta .btn-outline { width: 100%; }
-          .hero-cta .branch-options { flex-direction: column; align-items: stretch; gap: 1rem; }
-          .hero-cta .branch-options a { padding: 0.6rem 0 !important; }
 
           .section { padding: 3rem 0; }
           .h2 { font-size: 1.4rem; }
@@ -780,34 +852,63 @@ export default function TheNailRepublicSimple() {
           .insta-row { flex-direction: column; align-items: center; gap: 1.4rem; max-width: 260px; }
           .insta-row .gal-item { width: 100%; }
 
-          .branch-cta { flex-direction: column; }
-          .branch-cta a { width: 100%; }
+          .branch-cta {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 0.6rem !important;
+          }
+
+          .branch-cta a {
+            flex: 1 1 50% !important;
+            width: auto !important;
+            min-width: 0 !important;
+            padding: 0 0.5rem !important;
+            font-size: 0.68rem !important;
+          }
+
           .branch-map { height: 220px; }
         }
 
-        @media (max-width: 420px) {
-  .hero h1 {
-    font-size: 1.9rem;
-  }
+        @media (max-width: 480px) {
+          .hero-cta {
+            flex-wrap: wrap !important;
+            gap: 0.6rem !important;
+          }
 
-  .nav-brand span {
-    display: block;
-    font-size: 0.85rem;
-  }
+          .hero-cta .btn-solid,
+          .hero-cta .btn-outline,
+          .hero-cta .whatsapp-btn {
+            min-width: unset !important;
+            flex: 1 1 auto;
+            padding: 0 0.8rem !important;
+            font-size: 0.68rem !important;
+          }
 
-  .nav-inner {
-    padding-left: 4vw;
-    padding-right: 4vw;
-    gap: 0.4rem;
-  }
-}
+          .branch-options {
+            gap: 0.8rem !important;
+          }
+
+          .hero h1 {
+            font-size: 1.9rem;
+          }
+
+          .nav-brand span {
+            display: block;
+            font-size: 0.85rem;
+          }
+
+          .nav-inner {
+            padding-left: 4vw;
+            padding-right: 4vw;
+            gap: 0.4rem;
+          }
+        }
       `}</style>
 
       {/* NAV */}
       <nav className="nav">
         <div className="wrap nav-inner">
           <a href="#home" className="nav-brand">
-            <NRLogo size={40} />
             <span>The Nail Republic</span>
           </a>
 
@@ -888,15 +989,29 @@ export default function TheNailRepublicSimple() {
       >
         <div className="wrap hero-grid">
           <div>
+            <NRLogo size={200} className="hero-logo" />
             <div className="hero-eyebrow">Premium Unisex Salon</div>
             <h1 className="serif">The Nail Republic</h1>
             <p className="hero-sub">A Signature Of Beauty.</p>
             <p className="hero-desc">
               Premium Nail, Hair, Skin & Hair Extension Services.
               <br />
-              <span className="hero-locations">Kochi · Muva, Kerala</span>
+              <span className="hero-locations">Kochi · Muvattupuzha, Kerala</span>
             </p>
             <div className="hero-cta branch-actions">
+              {activeAction === "book" ? (
+                <div className="branch-options">
+                  <span className="coming-soon-text">Coming soon</span>
+                </div>
+              ) : (
+                <button
+                  className="btn-solid"
+                  onClick={() => setActiveAction("book")}
+                >
+                  Book Now
+                </button>
+              )}
+
               {activeAction === "call" ? (
                 <div className="branch-options">
                   <a href={`tel:${KOCHI_PHONE}`} className="btn-solid">
@@ -907,27 +1022,16 @@ export default function TheNailRepublicSimple() {
                     Muvattupuzha
                   </a>
                 </div>
-              ) : activeAction === "direction" ? (
-                <div className="branch-options">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=The%20Nail%20Republic%20Kochi"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-outline"
-                  >
-                    Kochi
-                  </a>
+              ) : (
+                <button
+                  className="btn-solid"
+                  onClick={() => setActiveAction("call")}
+                >
+                  Call Now
+                </button>
+              )}
 
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=The%20Nail%20Republic%20Muvattupuzha"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-outline"
-                  >
-                    Muvattupuzha
-                  </a>
-                </div>
-              ) : activeAction === "whatsapp" ? (
+              {activeAction === "whatsapp" ? (
                 <div className="branch-options">
                   <a
                     href={`https://wa.me/${KOCHI_WHATSAPP}`}
@@ -948,22 +1052,13 @@ export default function TheNailRepublicSimple() {
                   </a>
                 </div>
               ) : (
-                <>
-                  <button
-                    className="btn-solid"
-                    onClick={() => setActiveAction("call")}
-                  >
-                    Call Now
-                  </button>
-
-                  <button
-                    className="whatsapp-btn"
-                    onClick={() => setActiveAction("whatsapp")}
-                  >
-                    <FaWhatsapp size={20} />
-                    <span>WhatsApp</span>
-                  </button>
-                </>
+                <button
+                  className="whatsapp-btn"
+                  onClick={() => setActiveAction("whatsapp")}
+                >
+                  <FaWhatsapp size={20} />
+                  <span>WhatsApp</span>
+                </button>
               )}
             </div>
           </div>
@@ -1067,6 +1162,23 @@ export default function TheNailRepublicSimple() {
         </div>
       </section>
 
+      {/* BRANDS */}
+      <section className="section brands-section">
+        <div className="wrap">
+          <div className="kicker">Products We Trust</div>
+          <h3 className="serif">Brands We Use</h3>
+          <div className="brand-marquee">
+            <div className="brand-track">
+              {[...BRANDS, ...BRANDS].map((b, i) => (
+                <div className="brand-logo-item" key={`${b.name}-${i}`}>
+                  <img src={b.logo} alt={b.name} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* INSTAGRAM */}
       <section className="section insta">
         <div className="wrap">
@@ -1080,14 +1192,6 @@ export default function TheNailRepublicSimple() {
               <img className="toned-img" src={insta3} alt="Instagram post" />
             </div>
           </div>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-outline"
-          >
-            Follow on Instagram
-          </a>
         </div>
       </section>
 
