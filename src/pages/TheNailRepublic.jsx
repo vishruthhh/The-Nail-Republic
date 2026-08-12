@@ -1192,6 +1192,14 @@ export default function TheNailRepublicSimple() {
               <img className="toned-img" src={insta3} alt="Instagram post" />
             </div>
           </div>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-outline"
+          >
+            Follow on Instagram
+          </a>
         </div>
       </section>
 
