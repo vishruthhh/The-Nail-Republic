@@ -1264,7 +1264,7 @@ export default function TheNailRepublicSimple() {
                 </a>
 
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=The%20Nail%20Republic%20Kochi"
+                  href="https://maps.app.goo.gl/Qfr7zvCTphwXf8QT8"
                   target="_blank"
                   rel="noreferrer"
                   className="btn-outline"
@@ -1308,7 +1308,7 @@ export default function TheNailRepublicSimple() {
                 </a>
 
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=The%20Nail%20Republic%20Muva"
+                  href="https://maps.app.goo.gl/zjnwVYLE774Vgki9A"
                   target="_blank"
                   rel="noreferrer"
                   className="btn-outline"
