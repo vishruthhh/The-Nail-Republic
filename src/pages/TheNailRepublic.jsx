@@ -175,7 +175,7 @@ const FAQS = [
   },
   {
     question: "What are your opening hours?",
-    answer: "9:30 AM - 7:30PM in Kochi and 10:30AM - 6:00PM in Muvattupuzha",
+    answer: "9:30 AM - 7:30PM in Kochi (Tuesday - Holiday) and 10:30AM - 6:00PM in Muvattupuzha (Wednesday - Holiday) ",
   },
 ];
 
@@ -1341,7 +1341,7 @@ export default function TheNailRepublicSimple() {
           <div className="tag">
             Premium Nail • Hair • Skin & Hair Extensions
           </div>
-          <div className="sub">Kochi, Kerala</div>
+          <div className="sub">Kochi • Muvattupuzha, Kerala</div>
           <div className="foot-copy">
             © 2023 The Nail Republic. All Rights Reserved.
           </div>
